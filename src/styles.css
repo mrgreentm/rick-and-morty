@@ -1,1 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.toolbar {
+    color: green;
+    font-weight: bold;
+    box-shadow: 13px -6px 33px 11px rgba(0,255,87,1);
+    -webkit-box-shadow: 13px -6px 33px 11px rgba(0,255,87,1);
+    -moz-box-shadow: 13px -6px 33px 11px rgba(0,255,87,1);
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    transition: padding 0.5s;
+    transition: font-size 0.5s;
+    font-size: 2rem;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+}
+.menu a{
+    color: black;
+    font-size: 1.5rem;
+    padding: 1rem 1rem 0 0;
+    text-decoration: none;
+}
+.menu a:hover{
+    color: green;
+}
+
+@media (max-width:1024px){
+    .toolbar{
+        font-size: 0.9rem;
+        padding: 0.5rem;
+        transition: font-size 0.5s;
+        transition: padding 0.5s;
+    }
+}
