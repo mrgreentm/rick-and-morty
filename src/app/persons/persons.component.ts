@@ -18,7 +18,6 @@ export class PersonsComponent implements OnInit {
     this.personService.getPersons().subscribe(res=>{
       this.persons = res?.results
       console.log(this.persons);
-      
     })
   }
 }
