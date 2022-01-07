@@ -1,35 +1,60 @@
-import { TestBed } from '@angular/core/testing';
+import { HttpClientModule } from '@angular/common/http';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { PersonService } from './person.service';
+import { PersonsComponent } from './persons/persons.component';
+
 
 describe('AppComponent', () => {
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatIconModule,
+        HttpClientModule,
+        MatCardModule
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        PersonsComponent
       ],
     }).compileComponents();
   });
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AppComponent)
+    component = fixture.componentInstance
+    fixture.detectChanges()
+  })
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+    expect(component).toBeTruthy();
   });
 
   it(`should have as title 'ricky-and-morty'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('ricky-and-morty');
+    expect(component.title).toEqual('ricky-and-morty');
   });
 
+  it('should have a variable person equals to ricky', () => {
+    expect(component.person).toEqual('ricky')
+  })
+
   it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('ricky-and-morty app is running!');
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('.title')?.textContent).toContain('ricky-and-morty');
   });
+  it('should class iquals to toolbar',()=>{
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('.menu')?.firstChild?.textContent).toContain('persons')
+  })
 });

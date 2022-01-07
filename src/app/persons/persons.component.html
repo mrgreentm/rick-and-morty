@@ -1,15 +1,15 @@
 <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;">
     <mat-card *ngFor="let person of persons" class="example-card">
         <mat-card-header>
-          <img mat-card-avatar class="example-header-image" src="{{person.image}}">
-          <mat-card-title>{{person.name}}</mat-card-title>
-          <mat-card-subtitle>{{person.gender}}</mat-card-subtitle>
+            <img mat-card-avatar class="example-header-image" src="{{person.image}}">
+            <mat-card-title>{{person.name}}</mat-card-title>
+            <mat-card-subtitle>{{person.gender}}</mat-card-subtitle>
         </mat-card-header>
-        <img mat-card-image src="{{person.image}}" alt="Photo of a Shiba Inu">
+        <img mat-card-image src="{{person.image}}" class="image" alt="Photo of a Shiba Inu">
         <mat-card-content>
-          <p>
-            {{person.species}} and is {{person.status}}
-          </p>
+            <p>
+                {{person.species}} and is {{person.status}}
+            </p>
         </mat-card-content>
-      </mat-card>
+    </mat-card>
 </div>

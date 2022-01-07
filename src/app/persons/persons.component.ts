@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { PersonService } from '../person.service';
+import { Component, Input, OnInit } from '@angular/core';
 import { Person } from '../person'
 
 @Component({
@@ -8,16 +7,10 @@ import { Person } from '../person'
   styleUrls: ['./persons.component.css']
 })
 export class PersonsComponent implements OnInit {
-  persons?:Person[]
-  constructor(private personService: PersonService) { }
+  @Input() persons?: Person[]
+  constructor() { }
 
   ngOnInit(): void {
-    this.getPersons()
   }
-  getPersons(){
-    this.personService.getPersons().subscribe(res=>{
-      this.persons = res?.results
-      console.log(this.persons);
-    })
-  }
+
 }

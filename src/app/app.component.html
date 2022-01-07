@@ -1,8 +1,8 @@
 <div class="toolbar">
-  <span class="title">Rick and Morty - A Application in Angular -</span>
-  <div class="menu">
-    <a href="/persons">persons</a>
-    <a href="/locations">locations</a>
-  </div>
+    <span class="title">{{title}}</span>
+    <div class="menu">
+        <a href="/persons">persons</a>
+        <a href="/locations">locations</a>
+    </div>
 </div>
-<router-outlet></router-outlet>
+<app-persons [persons]="persons"></app-persons>
