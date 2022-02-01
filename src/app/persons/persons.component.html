@@ -1,5 +1,14 @@
+<div class="search-hero">
+    <input [matAutocomplete]="auto" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching for a hero by id or name or country">
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{option}}
+        </mat-option>
+    </mat-autocomplete>
+</div>
+
 <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;">
-    <mat-card *ngFor="let person of persons" class="example-card">
+    <mat-card *ngFor="let person of persons |filter:searchText" class="example-card">
         <mat-card-header>
             <img mat-card-avatar class="example-header-image" src="{{person.image}}">
             <mat-card-title>{{person.name}}</mat-card-title>
